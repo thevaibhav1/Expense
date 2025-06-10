@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import style from "./Secondcontainer.module.css";
 import Listcard from "./Listcard";
-
-const mockData = [];
+import { Contextobj } from "../store/Contextobj";
 
 const ITEMS_PER_PAGE = 3;
 
 const Secondcontainer = () => {
   const [startIndex, setStartIndex] = useState(0);
-
+  const { expenseitems } = useContext(Contextobj);
   const handleNext = () => {
-    if (startIndex + ITEMS_PER_PAGE < mockData.length) {
+    if (startIndex + ITEMS_PER_PAGE < expenseitems.length) {
       setStartIndex(startIndex + ITEMS_PER_PAGE);
     }
   };
@@ -21,7 +20,10 @@ const Secondcontainer = () => {
     }
   };
 
-  const visibleItems = mockData.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  const visibleItems = expenseitems.slice(
+    startIndex,
+    startIndex + ITEMS_PER_PAGE
+  );
 
   return (
     <div className={style.Container}>
@@ -29,7 +31,13 @@ const Secondcontainer = () => {
       <div className={style.card}>
         {visibleItems.length > 0 &&
           visibleItems.map((item, index) => (
-            <Listcard key={index} name={item.name} price={item.price} />
+            <Listcard
+              key={index}
+              name={item.title}
+              price={`₹${item.amount}`}
+              date={item.date}
+              categrory={item.category}
+            />
           ))}
         {visibleItems.length === 0 && <p>No transactions</p>}
       </div>
@@ -39,7 +47,7 @@ const Secondcontainer = () => {
         </button>
         <button
           onClick={handleNext}
-          disabled={startIndex + ITEMS_PER_PAGE >= mockData.length}
+          disabled={startIndex + ITEMS_PER_PAGE >= expenseitems.length}
         >
           →
         </button>

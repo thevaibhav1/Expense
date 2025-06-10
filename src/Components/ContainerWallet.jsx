@@ -4,7 +4,7 @@ import Card from "./Card/Card";
 import { Contextobj } from "../store/Contextobj"; // Adjust the path if needed
 
 const ContainerWallet = () => {
-  const { balance } = useContext(Contextobj); // ✅ Consume balance from context
+  const { balance, expenseitems } = useContext(Contextobj); // ✅ Consume balance from context
 
   return (
     <div className={style.container}>
@@ -17,7 +17,11 @@ const ContainerWallet = () => {
         />
         <Card
           title="Expenses:"
-          value="$500" // You can also make this dynamic later
+          value={
+            expenseitems.length === 0
+              ? "₹0"
+              : `₹${expenseitems.reduce((acc, item) => acc + item.amount, 0)}`
+          } // ✅ Calculate total expenses
           btn="+ Add Expense"
           green={false}
         />

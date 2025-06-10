@@ -3,6 +3,7 @@ import style from "./Card.module.css";
 import ReactModal from "react-modal";
 import Addexpensemodal from "../Modal/Addexpensemodal";
 import { Contextobj } from "../../store/Contextobj";
+import Editexpensemodal from "../Modal/Editexpensemodal";
 // Set root element for accessibility
 ReactModal.setAppElement("#modal");
 
@@ -31,14 +32,25 @@ const Card = ({ title, value, btn, green }) => {
         </button>
       </div>
 
-      <ReactModal
-        isOpen={modalOpen}
-        onRequestClose={closeModal}
-        contentLabel="Add Expense Modal"
-        className={style.modal}
-      >
-        <Addexpensemodal closeModal={closeModal} />
-      </ReactModal>
+      {green ? (
+        <ReactModal
+          isOpen={modalOpen}
+          onRequestClose={closeModal}
+          contentLabel="Add Expense Modal"
+          className={style.modal}
+        >
+          <Addexpensemodal closeModal={closeModal} />
+        </ReactModal>
+      ) : (
+        <ReactModal
+          isOpen={modalOpen}
+          onRequestClose={closeModal}
+          contentLabel="Add Expense Modal"
+          className={style.modal}
+        >
+          <Editexpensemodal closeModal={closeModal} />
+        </ReactModal>
+      )}
     </>
   );
 };

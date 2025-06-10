@@ -3,14 +3,14 @@ import { TiDeleteOutline } from "react-icons/ti";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import style from "./Secondcontainer.module.css";
 
-const Listcard = ({ name, price }) => {
+const Listcard = ({ name, price, date, categrory }) => {
   return (
     <div className={style.listcontainer}>
       <div className={style.food}>
-        <img src="../assets/Group1.png" alt="Icon" />
+        <img src="logo_categrory" alt="Icon" />
         <div className={style.list}>
           <span>{name}</span>
-          <span>{name}</span>
+          <span>{date}</span>
         </div>
       </div>
       <div>
