@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import style from "./Editexpensemodal.module.css";
 import { Contextobj } from "../../store/Contextobj";
+
 const Editexpensemodal = ({ closeModal }) => {
   const { handleExpense } = useContext(Contextobj);
+
   const handleCancel = () => {
     closeModal();
   };
@@ -15,7 +17,6 @@ const Editexpensemodal = ({ closeModal }) => {
     const category = formdata.get("category");
     const date = formdata.get("date");
 
-    // ✅ Only proceed if all fields are valid
     if (title && !isNaN(amount) && category && date) {
       const objexpense = {
         title,
@@ -48,18 +49,13 @@ const Editexpensemodal = ({ closeModal }) => {
           />
         </div>
         <div className={style.inputGroup}>
-          <input
-            name="category"
-            type="text"
-            placeholder="Select Category"
-            className={style.input}
-          />
-          <input
-            name="date"
-            type="date"
-            placeholder="dd/mm/yyyy"
-            className={style.input}
-          />
+          <select name="category" className={style.input}>
+            <option value="">Select Category</option>
+            <option value="Food">Food</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Travel">Travel</option>
+          </select>
+          <input name="date" type="date" className={style.input} />
         </div>
         <div className={style.buttonGroup}>
           <button type="submit" className={style.submitBtn}>
@@ -77,4 +73,5 @@ const Editexpensemodal = ({ closeModal }) => {
     </div>
   );
 };
+
 export default Editexpensemodal;

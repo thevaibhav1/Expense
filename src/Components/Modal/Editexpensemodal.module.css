@@ -33,6 +33,21 @@
     line-height: 100%;
     letter-spacing: 0%;
 }
+select{
+    -webkit-appearance: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 15px;
+    border: none;
+    font-family: Ubuntu;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    
+
+}
+ 
 .buttonGroup{
     display: flex;
     gap: 12px;
