@@ -4,13 +4,19 @@ import { MdOutlineModeEditOutline } from "react-icons/md";
 import style from "./Secondcontainer.module.css";
 
 const Listcard = ({ name, price, date, categrory }) => {
+  const dateObj = new Date(date);
+  const formattedDate = dateObj.toLocaleDateString("en-US", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
   return (
     <div className={style.listcontainer}>
       <div className={style.food}>
         <img src="logo_categrory" alt="Icon" />
         <div className={style.list}>
           <span>{name}</span>
-          <span>{date}</span>
+          <span>{formattedDate}</span>
         </div>
       </div>
       <div>

@@ -11,7 +11,7 @@ const Editexpensemodal = ({ closeModal }) => {
     e.preventDefault();
     const formdata = new FormData(e.target);
     const title = formdata.get("title");
-    const amount = parseFloat(formdata.get("Price"));
+    const amount = parseFloat(formdata.get("price"));
     const category = formdata.get("Category");
     const date = formdata.get("Date");
 
@@ -41,7 +41,7 @@ const Editexpensemodal = ({ closeModal }) => {
             className={style.input}
           />
           <input
-            name="Price"
+            name="price"
             type="number"
             placeholder="Price"
             className={style.input}
