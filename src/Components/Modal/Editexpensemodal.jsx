@@ -12,8 +12,8 @@ const Editexpensemodal = ({ closeModal }) => {
     const formdata = new FormData(e.target);
     const title = formdata.get("title");
     const amount = parseFloat(formdata.get("price"));
-    const category = formdata.get("Category");
-    const date = formdata.get("Date");
+    const category = formdata.get("category");
+    const date = formdata.get("date");
 
     // ✅ Only proceed if all fields are valid
     if (title && !isNaN(amount) && category && date) {
@@ -49,13 +49,13 @@ const Editexpensemodal = ({ closeModal }) => {
         </div>
         <div className={style.inputGroup}>
           <input
-            name="Category"
+            name="category"
             type="text"
             placeholder="Select Category"
             className={style.input}
           />
           <input
-            name="Date"
+            name="date"
             type="date"
             placeholder="dd/mm/yyyy"
             className={style.input}
