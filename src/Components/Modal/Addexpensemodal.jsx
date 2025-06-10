@@ -12,7 +12,7 @@ const Addexpensemodal = ({ closeModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formdata = new FormData(e.target);
-    const amount = parseFloat(formdata.get("amount"));
+    const amount = parseFloat(formdata.get("title"));
     if (!isNaN(amount) && amount > 0) {
       incrementBalance(amount);
     }
@@ -24,7 +24,7 @@ const Addexpensemodal = ({ closeModal }) => {
       <h2 className={style.title}>Add Balance</h2>
       <form className={style.form} onSubmit={handleSubmit}>
         <input
-          name="amount"
+          name="title"
           type="number"
           placeholder="Income Amount"
           className={style.input}
