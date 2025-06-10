@@ -26,7 +26,7 @@ const Addexpensemodal = ({ closeModal }) => {
         <input
           name="amount"
           type="number"
-          placeholder="Enter Amount"
+          placeholder="Income Amount"
           className={style.input}
         />
         <button type="submit" className={style.submitBtn}>
