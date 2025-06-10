@@ -1,0 +1,79 @@
+.Container{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: 35px;
+}
+.Container h2{
+    
+font-family: Ubuntu;
+font-weight: 700;
+font-style: italic;
+font-size: 28px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #FFFFFF;
+}
+
+
+
+.card{
+    background-color: #FFFFFF;
+    border-radius: 15px;
+}
+
+.listcontainer{
+    padding: 20px;
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #FFFFFF; */
+    /* border-radius: 15px; */
+    border-bottom: 1px solid;
+}
+.food{
+    display: flex;
+    align-items: center;
+
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+}
+.icons{
+    display: flex;
+    align-items: center;
+    gap: 5px;;
+}
+.icon {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 10px;
+  }
+  
+  .controls button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  
+  .controls button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  
