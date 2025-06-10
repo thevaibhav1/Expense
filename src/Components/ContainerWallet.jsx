@@ -20,7 +20,7 @@ const ContainerWallet = () => {
           value={
             expenseitems.length === 0
               ? "₹0"
-              : `₹${expenseitems.reduce((acc, item) => acc + item.amount, 0)}`
+              : `₹${expenseitems.reduce((acc, item) => acc + item.price, 0)}`
           } // ✅ Calculate total expenses
           btn="+ Add Expense"
           green={false}

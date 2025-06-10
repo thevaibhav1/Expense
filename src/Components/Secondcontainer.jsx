@@ -33,8 +33,8 @@ const Secondcontainer = () => {
           visibleItems.map((item, index) => (
             <Listcard
               key={index}
-              name={item.title}
-              price={`₹${item.amount}`}
+              name={item.name}
+              price={`₹${item.price}`}
               date={item.date}
               categrory={item.category}
             />

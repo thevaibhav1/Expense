@@ -3,7 +3,7 @@ import style from "./Editexpensemodal.module.css";
 import { Contextobj } from "../../store/Contextobj";
 
 const Editexpensemodal = ({ closeModal }) => {
-  const { handleExpense } = useContext(Contextobj);
+  const { handleExpense, handleBalance } = useContext(Contextobj);
 
   const handleCancel = () => {
     closeModal();
@@ -12,19 +12,20 @@ const Editexpensemodal = ({ closeModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formdata = new FormData(e.target);
-    const title = formdata.get("title");
-    const amount = parseFloat(formdata.get("price"));
+    const name = formdata.get("title");
+    const price = parseFloat(formdata.get("price"));
     const category = formdata.get("category");
     const date = formdata.get("date");
 
-    if (title && !isNaN(amount) && category && date) {
+    if (name && !isNaN(price) && category && date) {
       const objexpense = {
-        title,
-        amount,
+        name,
+        price,
         category,
         date,
       };
       handleExpense(objexpense);
+      handleBalance(price);
     }
 
     closeModal();

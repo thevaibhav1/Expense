@@ -3,25 +3,27 @@ import { TiDeleteOutline } from "react-icons/ti";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import style from "./Secondcontainer.module.css";
 
-const Listcard = ({ name, price, date, categrory }) => {
+const Listcard = ({ name, price, date, category }) => {
   const dateObj = new Date(date);
   const formattedDate = dateObj.toLocaleDateString("en-US", {
     day: "2-digit",
     month: "long",
     year: "numeric",
   });
+
   return (
     <div className={style.listcontainer}>
       <div className={style.food}>
-        <img src="logo_categrory" alt="Icon" />
+        <img src={`/icons/${category}.png`} alt={category} />
         <div className={style.list}>
           <span>{name}</span>
           <span>{formattedDate}</span>
+          {/* <span>{category}</span> */}
         </div>
       </div>
       <div>
         <div className={style.icons}>
-          <span>{price}</span>
+          <span data-testid="expense-amount">{price}</span>
           <div className={style.icon}>
             <TiDeleteOutline
               style={{ color: "white", width: "35px", height: "35px" }}

@@ -11,11 +11,18 @@ const ContextComp = ({ children }) => {
   const handleExpense = (expense) => {
     setExpenseItems((prevItems) => [expense, ...prevItems]);
   };
+  const handleBalance = (price) => {
+    setBalance(() => {
+      return balance - price;
+    });
+  };
+
   const valueObj = {
     balance,
     incrementBalance,
     expenseitems,
     handleExpense,
+    handleBalance,
   };
   return <Contextobj.Provider value={valueObj}>{children}</Contextobj.Provider>;
 };
