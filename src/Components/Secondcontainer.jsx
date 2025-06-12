@@ -24,21 +24,21 @@ const Secondcontainer = () => {
     startIndex,
     startIndex + ITEMS_PER_PAGE
   );
-
+  // console.log(visibleItems);
   return (
     <div className={style.Secondcontainer}>
       <div className={style.Container}>
         <h2>Recent Transactions</h2>
         <div className={style.card}>
           {visibleItems.length > 0 &&
-            visibleItems.map((item, index) => (
+            visibleItems.map((item) => (
               <Listcard
                 key={item.id}
                 id={item.id}
                 name={item.name}
                 price={`₹${item.price}`}
                 date={item.date}
-                categrory={item.category}
+                category={item.category}
               />
             ))}
           {visibleItems.length === 0 && <p>No transactions</p>}

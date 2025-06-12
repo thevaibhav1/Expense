@@ -5,7 +5,9 @@ import style from "./Secondcontainer.module.css";
 import { Contextobj } from "../store/Contextobj";
 import ReactModal from "react-modal";
 import Editexpensemodal from "./Modal/Editexpensemodal";
-
+import Food from "../icons/Food.png";
+import Travel from "../icons/Travel.png";
+import Entertainment from "../icons/Entertainment.png";
 const Listcard = ({ name, price, date, category, id }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const { handleRemove, handleListEdit } = useContext(Contextobj);
@@ -15,6 +17,11 @@ const Listcard = ({ name, price, date, category, id }) => {
     month: "long",
     year: "numeric",
   });
+  const iconMap = {
+    Food,
+    Travel,
+    Entertainment,
+  };
 
   const onAddExpense = () => {
     setModalOpen(true);
@@ -27,30 +34,36 @@ const Listcard = ({ name, price, date, category, id }) => {
     console.log(`Removing item with id: ${id}`);
     handleRemove(id);
   };
+  // console.log(category);
 
   return (
     <div className={style.listcontainer}>
       <div className={style.food}>
-        <img src={`/icons/${category}.png`} alt={category} />
+        <div className={style.iconsimg}>
+          <img src={iconMap[category]} alt={category} />
+        </div>
         <div className={style.list}>
           <span>{name}</span>
-          <span>{formattedDate}</span>
+          <span style={{ color: "#9B9B9B" }}>{formattedDate}</span>
           {/* <span>{category}</span> */}
         </div>
       </div>
       <div>
         <div className={style.icons}>
-          <span data-testid="expense-amount">{price}</span>
-          <div className={style.icon}>
+          <span className={style.price}>{price}</span>
+          <div className={style.icondel}>
             <TiDeleteOutline
               onClick={() => listRemoveHandler(id)}
               style={{ color: "white", width: "35px", height: "35px" }}
             />
           </div>
-          <MdOutlineModeEditOutline
-            onClick={onAddExpense}
-            className={style.icon}
-          />
+          <div className={style.iconedit}>
+            <MdOutlineModeEditOutline
+              onClick={onAddExpense}
+              className={style.icon}
+              style={{ color: "white" }}
+            />
+          </div>
           {modalOpen && (
             <ReactModal
               isOpen={modalOpen}

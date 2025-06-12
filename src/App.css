@@ -10,3 +10,8 @@ h1{
   font-family: 'Ubantu', sans-serif;
   margin-left: 12px;
 }
+@media only screen and (max-width: 800px){
+  #root{
+    width: 100%;
+  }
+}
