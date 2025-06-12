@@ -3,6 +3,8 @@ import style from "./Secondcontainer.module.css";
 import Listcard from "./Listcard";
 import { Contextobj } from "../store/Contextobj";
 import BarChartComponent from "./Charts/BarChartComponent";
+import { ImArrowLeft2 } from "react-icons/im";
+import { ImArrowRight2 } from "react-icons/im";
 const ITEMS_PER_PAGE = 3;
 
 const Secondcontainer = () => {
@@ -45,14 +47,14 @@ const Secondcontainer = () => {
         </div>
         <div className={style.controls}>
           <button onClick={handlePrev} disabled={startIndex === 0}>
-            ←
+            <ImArrowLeft2 />
           </button>
           <span style={{ color: "white" }}>{1}</span>
           <button
             onClick={handleNext}
             disabled={startIndex + ITEMS_PER_PAGE >= expenseitems.length}
           >
-            →
+            <ImArrowRight2 />
           </button>
         </div>
       </div>
