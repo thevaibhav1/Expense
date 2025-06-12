@@ -1,0 +1,13 @@
+.chartWrapper {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    box-sizing: border-box;
+    height: 320px; /* give enough height for chart */
+  }
+  
+
+
+.recharts-responsive-container{
+    width: 40%;
+}

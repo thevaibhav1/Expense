@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import style from "./Secondcontainer.module.css";
 import Listcard from "./Listcard";
 import { Contextobj } from "../store/Contextobj";
-
+import BarChartComponent from "./Charts/BarChartComponent";
 const ITEMS_PER_PAGE = 3;
 
 const Secondcontainer = () => {
@@ -26,32 +26,36 @@ const Secondcontainer = () => {
   );
 
   return (
-    <div className={style.Container}>
-      <h2>Recent Transactions</h2>
-      <div className={style.card}>
-        {visibleItems.length > 0 &&
-          visibleItems.map((item, index) => (
-            <Listcard
-              key={index}
-              name={item.name}
-              price={`₹${item.price}`}
-              date={item.date}
-              categrory={item.category}
-            />
-          ))}
-        {visibleItems.length === 0 && <p>No transactions</p>}
+    <div className={style.Secondcontainer}>
+      <div className={style.Container}>
+        <h2>Recent Transactions</h2>
+        <div className={style.card}>
+          {visibleItems.length > 0 &&
+            visibleItems.map((item, index) => (
+              <Listcard
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                price={`₹${item.price}`}
+                date={item.date}
+                categrory={item.category}
+              />
+            ))}
+          {visibleItems.length === 0 && <p>No transactions</p>}
+        </div>
+        <div className={style.controls}>
+          <button onClick={handlePrev} disabled={startIndex === 0}>
+            ←
+          </button>
+          <button
+            onClick={handleNext}
+            disabled={startIndex + ITEMS_PER_PAGE >= expenseitems.length}
+          >
+            →
+          </button>
+        </div>
       </div>
-      <div className={style.controls}>
-        <button onClick={handlePrev} disabled={startIndex === 0}>
-          ←
-        </button>
-        <button
-          onClick={handleNext}
-          disabled={startIndex + ITEMS_PER_PAGE >= expenseitems.length}
-        >
-          →
-        </button>
-      </div>
+      <BarChartComponent />
     </div>
   );
 };

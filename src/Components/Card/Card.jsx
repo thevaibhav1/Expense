@@ -48,7 +48,7 @@ const Card = ({ title, value, btn, green }) => {
           contentLabel="Add Expense Modal"
           className={style.modal}
         >
-          <Editexpensemodal closeModal={closeModal} />
+          <Editexpensemodal title="Add Expense" closeModal={closeModal} />
         </ReactModal>
       )}
     </>
