@@ -47,6 +47,7 @@ const Secondcontainer = () => {
           <button onClick={handlePrev} disabled={startIndex === 0}>
             ←
           </button>
+          <span style={{ color: "white" }}>{1}</span>
           <button
             onClick={handleNext}
             disabled={startIndex + ITEMS_PER_PAGE >= expenseitems.length}
